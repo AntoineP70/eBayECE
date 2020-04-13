@@ -1,0 +1,46 @@
+.tri{
+	width: 200px;
+	height: 600px;
+	float: left;
+	background-color: #efefef;
+	border : 2px solid white;
+	border-radius: 10px;
+	margin: 20px;
+}
+
+
+.items{
+	margin:20px;
+	float:left;
+}
+
+.col-sm-4{
+	margin-left:20px;
+	width: 300px;
+	height: 450px;
+	float : left;
+	background-color: #efefef;
+	border : 2px solid white;
+	border-radius: 10px;
+}
+
+.col-sm-4 img{
+	margin-top: 20px;
+	transition: 1s;
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	left: 25px;
+}
+
+.col-sm-4 img:hover{
+	margin-left: 3px;
+	left:0;
+	width:290px;
+	height: 290px;
+}
+
+.col-sm-4 .item_info{
+	position: absolute;
+	top:310px;
+}
