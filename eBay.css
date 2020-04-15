@@ -1,0 +1,108 @@
+
+
+.container-fluid{
+	background: linear-gradient(#0a3d62,white);
+	height: 600px;
+}
+
+.col-sm-12{
+	margin:20px;
+	font-weight: 1200;
+	font-size :30px;
+	color :white;
+	text-align: center;
+}
+
+
+
+.col-sm-2{
+	width: : 200px;
+
+}
+.menu{
+	margin-top: 50px;
+	
+}
+
+.menu .titre{
+	
+	display: inline-block;
+	float: left;
+	position: relative;
+	padding: 23px 10px;
+	transition: 1s;
+
+	border : solid;
+	
+	width: 160px;
+	border-width: 1px;
+}
+
+.menu .titre a{
+	color :white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size:16px;
+	width: 150px;
+}
+.menu .titre:hover {
+	width: 195px;
+  	background-color: #079992;
+}
+
+
+.menu .sous_menu{
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	height: 0;
+	top:70px;
+	left:0;
+	padding: 0;
+
+	transform: scaleY(0);
+	transform-origin: 50% 0;
+	transition: transform 1s ease;
+
+	background-color: white;
+	box-shadow: 0 2px 3px rgba(34,36,38,.15);
+	border: 1px solid rgba(34,36,38,.15); 
+	border-radius: 0 0 5px 5px;
+
+	z-index: 999;
+
+}
+.menu .titre:hover .sous_menu{
+	visibility: visible;
+	height: auto;
+	transform: scaleY(1);
+}
+
+.menu .sous_menu li{
+	padding: 0;
+	display: inline-block;
+	color: black;
+	float : left;
+	width:150px;
+	margin-left: 40px;
+	padding: 2px;
+	transition : 0.2s;
+
+
+}
+
+.menu .sous_menu li a{
+	text-transform: none;
+	color:black;
+	padding: 0 0 0 5px;
+	font-weight: normal;
+	font-size:24px;
+}
+
+.menu .sous_menu li:hover{
+	background-color: #eeeeee;
+	border-left : 3px solid #3498db;
+	width: auto;
+
+}

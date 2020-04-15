@@ -1,0 +1,139 @@
+.connexion{
+	height: 40px;
+	width: 150px;
+	float: left;
+	display: inline-block;
+	position: relative;
+	left:150px;
+	top:-30px;
+
+}
+
+.aff_co{
+	width: 350px;
+	height: 45px;
+	background-color: #efefef;
+	border : 2px solid white;
+	border-radius : 10px;
+}
+
+
+
+.co_titre{
+	display: inline-block;
+	position:relative;
+	float: left;
+	padding: 10px 15px;
+	transition: 0.5s;
+	width: 150px;
+	height: 40px;
+	border: 1px solid;
+	font-weight: 700;
+	font-synthesis: 16px;
+}
+
+.co_titre:hover{
+	background-color: #079992;
+	color:white;
+}
+
+.info_co{
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	height: 0;
+	top:40px;
+	left:0;
+	padding: 0;
+
+	float:left;
+
+	transform: scaleY(0);
+	transform-origin: 50% 0;
+	transition: transform 1s ease;
+
+	background-color: white;
+	box-shadow: 0 2px 3px rgba(34,36,38,.15);
+	border: 1px solid rgba(34,36,38,.15); 
+	border-radius: 0 0 5px 5px;
+
+	z-index: 999;
+}
+.info_crea{
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	height: 0;
+	top:40px;
+	left:0;
+	padding: 0;
+
+	float:left;
+
+	transform: scaleY(0);
+	transform-origin: 50% 0;
+	transition: transform 1s ease;
+
+	background-color: white;
+	box-shadow: 0 2px 3px rgba(34,36,38,.15);
+	border: 1px solid rgba(34,36,38,.15); 
+	border-radius: 0 0 5px 5px;
+
+	z-index: 999;
+}
+
+.co_titre:hover .info_co{
+	visibility: visible;
+	height: auto;
+	width: 320px;
+	transform: scaleY(1);
+}
+
+.co_titre:hover .info_crea{
+	visibility: visible;
+	height: auto;
+	width: 320px;
+	transform: scaleY(1);
+	left:-170px;
+	color:black;
+}
+.col-sm-6 li{
+	list-style: none;
+	color: black;
+	width:150px;
+	margin-left: 40px;
+	padding: 2px;
+	text-decoration: none;
+}
+
+.col-sm-6 li input{
+	text-decoration: none;
+	text-transform: none;
+	color:black;
+	padding: 0 0 0 5px;
+	font-weight: normal;
+	font-size:20px;
+
+}
+
+.button_co{
+	display: inline-block;
+	position:relative;
+	padding: 10px 15px;
+	transition: 0.5s;
+	width: auto;
+	height: 40px;
+	border: 1px solid;
+	font-weight: 700;
+	font-synthesis: 16px;
+}
+
+.button_co:hover{
+	background-color: #079992;
+	border-color: white;
+}
+
+.button_co:hover input{
+
+	color:white;
+}
