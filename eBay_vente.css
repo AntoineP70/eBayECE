@@ -1,0 +1,133 @@
+.annonce{
+	margin-top: 40px;
+	position: absolute;
+	left : 100px;
+	background-color: #efefef;
+	border : 2px solid white;
+	border-radius : 10px;
+}
+
+.annonce .col-sm-6{
+	height: 420px;
+	width: 420px;
+	margin-top: 20px;
+}
+.titre{
+	
+	display: inline-block;
+	float: right;
+	position: relative;
+	bottom: -20px;
+	padding: 23px 10px;
+	transition:0.5s;
+
+	border : solid;
+	width: 160px;
+	border-width: 1px;
+	font-weight: 700;
+	font-size:16px;
+	width: 200px;
+}
+
+.titre .menu_vente {
+	color :#0a3d62;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size:16px;
+	width: 150px;
+}
+.titre:hover {
+	width: 220px;
+  	background-color: #079992;
+  	color : white;
+}
+
+
+.sous_menu{
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	height: 0;
+	top:70px;
+	left:0;
+	padding: 0;
+
+	transform: scaleY(0);
+	transform-origin: 50% 0;
+	transition: transform 1s ease;
+
+	background-color: white;
+	box-shadow: 0 2px 3px rgba(34,36,38,.15);
+	border: 1px solid rgba(34,36,38,.15); 
+	border-radius: 0 0 5px 5px;
+
+	z-index: 999;
+
+}
+.titre:hover .sous_menu{
+	visibility: visible;
+	height: auto;
+	transform: scaleY(1);
+}
+
+.sous_menu li{
+	padding: 0;
+	display: inline-block;
+	color: black;
+	float : left;
+	width:150px;
+	margin-left: 40px;
+	padding: 2px;
+	transition : 0.2s;
+
+
+}
+
+.sous_menu li input{
+	text-decoration: none;
+	text-transform: none;
+	color:black;
+	padding: 0 0 0 5px;
+	font-weight: normal;
+	font-size:20px;
+}
+
+.sous_menu li:hover{
+	background-color: #eeeeee;
+	border-left : 3px solid #3498db;
+	width: auto;
+
+}
+
+
+.annonce .col-sm-12{
+	height: 60px;
+	width: 420px;
+	margin-top: 20px;
+}
+
+.but_val{	
+	float:left;
+	position: relative;
+	left:300px;
+	padding: 23px 10px;
+	transition:0.5s;
+	width: 160px;
+
+	border : solid;
+	border-width: 1px;
+	
+	color :#0a3d62;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size:16px;
+}
+
+.but_val:hover{
+	width: 320px;
+  	background-color: #079992;
+  	color : white;
+  	left:240px;
+}
