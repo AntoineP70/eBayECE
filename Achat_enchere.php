@@ -88,9 +88,9 @@
 						<li class="titre">
 							<a href="">Catégorie<i class="fa fa-angle-down"></i></a>
 							<ul class="sous_menu">
-								<li><a href="Categorie.php">Ferraille ou Trésor</a></li>
-								<li><a href="Categorie.html">Bon pour le musée</a></li>
-								<li><a href="Categorie.html">Accessoire VIP</a></li>
+								<li><a href="Categorie_fer.php">Ferraille ou Trésor</a></li>
+								<li><a href="Categorie_mu.php">Bon pour le musée</a></li>
+								<li><a href="Categorie_vip.php">Accessoire VIP</a></li>
 							</ul>
 						</li>
 					</div>
@@ -98,9 +98,9 @@
 						<li class="titre">
 							<a href="">Achat<i class="fa fa-angle-down"></i></a>
 							<ul class="sous_menu">
-								<li><a href="Achat_enchere.html">Enchères</a></li>
-								<li><a href="Achat_immediat.html">Achetez-le maintenant</a></li>
-								<li><a href="Achat_nego.html">Meilleure offre</a></li>
+								<li><a href="Achat_enchere.php">Enchères</a></li>
+								<li><a href="Achat_immediat.php">Achetez-le maintenant</a></li>
+								<li><a href="Achat_nego.php">Meilleure offre</a></li>
 							</ul>
 						</li>
 					</div>
@@ -127,24 +127,44 @@
 				</ul>
 			</div>	
 		</header>
-		<div class="row">
-			<lu class="liste_art">
-				<li class="article">
-					<div class="col-sm-12">
-						<div class="left">
-							<img src="zvzv">
-						</div>
-						<div class="middle">	
-							<h2>Titre</h2><br>
-							<p>présentation</p>
-						</div>
-						<div class="right">	
-							<p>prix</p><br>
-							<input type="button" value="enchérir" name="enchere">
-						</div>
-					</div>
-				</li>
-			</lu>
+
+		<div class="page">
+			<div class="tri">
+				<div class="tri_index">
+				</div>
+			</div>
+			<div class="items">
+				<style>
+					<?php include 'eBay_article.css'; ?>
+				</style>
+				<?php
+				    $bdd = new mysqli('localhost','root',"", 'ebay_ece');
+				    $articles = $bdd->query('select * from objet where TypeVente LIKE "Enchere"');
+				    foreach ($articles as $article): ?>
+				    	<article>
+			    			<div class="article">
+								<div class="col-sm-4">
+									<div class="left">
+									<img src="cecz">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="middle">	
+										<h2><?php echo $article['NomObjet'] ?></h2><br>
+										<p><?php echo $article['Description'] ?></p>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="right">	
+										<p><?php echo $article['Prix'] ?></p><br>
+										<input type="button" value="Enchérir" name="encherir">
+									</div>
+								</div>
+							</div>
+							<br><br><br><br><br><br><br><br><br><br><br><br><br>
+				    	</article>
+				    <?php endforeach ?>
+			    </div>
 		</div>
 	</div>
 </body>

@@ -126,24 +126,43 @@
 				</ul>
 			</div>	
 		</header>
-		<div class="row">
-			<lu class="liste_art">
-				<li class="article">
-					<div class="col-sm-12">
-						<div class="left">
-							<img src="zvzv">
-						</div>
-						<div class="middle">	
-							<h2>Titre</h2><br>
-							<p>présentation</p>
-						</div>
-						<div class="right">	
-							<p>prix</p><br>
-							<input type="button" value="Negocier" name="nego">
-						</div>
-					</div>
-				</li>
-			</lu>
+		<div class="page">
+			<div class="tri">
+				<div class="tri_index">
+				</div>
+			</div>
+			<div class="items">
+				<style>
+					<?php include 'eBay_article.css'; ?>
+				</style>
+				<?php
+				    $bdd = new mysqli('localhost','root',"", 'ebay_ece');
+				    $articles = $bdd->query('select * from objet where TypeVente LIKE "%o"');
+				    foreach ($articles as $article): ?>
+				    	<article>
+			    			<div class="article">
+								<div class="col-sm-4">
+									<div class="left">
+									<img src="cecz">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="middle">	
+										<h2><?php echo $article['NomObjet'] ?></h2><br>
+										<p><?php echo $article['Description'] ?></p>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="right">	
+										<p><?php echo $article['Prix'] ?></p><br>
+										<input type="button" value="Négocier" name="negocier">
+									</div>
+								</div>
+							</div>
+							<br><br><br><br><br><br><br><br><br><br><br><br><br>
+				    	</article>
+				    <?php endforeach ?>
+			    </div>
 		</div>
 	</div>
 </body>

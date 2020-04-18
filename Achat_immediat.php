@@ -126,21 +126,22 @@
 				</ul>
 			</div>	
 		</header>
+
 		<div class="page">
 			<div class="tri">
 				<div class="tri_index">
 				</div>
 			</div>
-			<div class="items">
+			<div class="item">
 				<style>
 					<?php include 'eBay_article.css'; ?>
 				</style>
 				<?php
 				    $bdd = new mysqli('localhost','root',"", 'ebay_ece');
-				    $articles = $bdd->query('select * from objet');
+				    $articles = $bdd->query('select * from objet where TypeVente LIKE "D%"');
 				    foreach ($articles as $article): ?>
 				    	<article>
-			    			<div class="item">
+			    			<div class="article">
 								<div class="col-sm-4">
 									<div class="left">
 									<img src="cecz">
@@ -148,7 +149,7 @@
 								</div>
 								<div class="col-sm-4">
 									<div class="middle">	
-										<h2><?php echo $article['Nom_Objet'] ?></h2><br>
+										<h2><?php echo $article['NomObjet'] ?></h2><br>
 										<p><?php echo $article['Description'] ?></p>
 									</div>
 								</div>
@@ -159,7 +160,8 @@
 									</div>
 								</div>
 							</div>
-							<br><br><br><br><br><br><br><br><br><br>
+
+							<br><br><br><br><br><br><br><br><br><br><br><br><br>
 				    	</article>
 				    <?php endforeach ?>
 			    </div>
