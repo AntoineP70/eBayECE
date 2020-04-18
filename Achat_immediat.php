@@ -126,6 +126,7 @@
 				</ul>
 			</div>	
 		</header>
+
 		<div class="page">
 			<div class="tri">
 				<div class="tri_index">
@@ -137,7 +138,7 @@
 				</style>
 				<?php
 				    $bdd = new mysqli('localhost','root',"", 'ebay_ece');
-				    $articles = $bdd->query('select * from objet');
+				    $articles = $bdd->query('select * from objet where TypeVente LIKE Vente_directe ');
 				    foreach ($articles as $article): ?>
 				    	<article>
 			    			<div class="item">
