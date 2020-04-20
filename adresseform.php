@@ -24,16 +24,22 @@
 			</div>
 		</header>
 
+		<!-- Form présentant la dernière adresse enregistrée par l'Acheteur connecté afin d'éviter la saisie -->
+		<!-- Possibilité d'ajouter une nouvelle adresse de livraison -->
+
 		<div class="row" style="height: 150px"></div>
 		<div class="row">
 
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
 
+				<!-- Form bootstrap permettant d'indiquer si des champs obligatoires ne sont pas saisis -->
+				<!-- Le bouton mène à la page paiement.html -->
 				<form class="needs-validation border border-dark" style="padding: 15px" action="paiement.html" method="post" novalidate>
 					<center><h3>Étape 1/2</h3></center>
 					<h4>Selectionnez l'adresse de livraison</h4>
 
+					<!-- Connexion à la BDD afin de récupérer l'adresse de l'acheteur -->
 					<?php $bdd = new mysqli('localhost','root',"", 'ebay_ece');
 					$users = $bdd->query('select user_id from data_co');
 					foreach ($users as $user) 
@@ -65,10 +71,12 @@
 											<td>
 												<div class="form-group">
 												    <div class="form-check">
+												    	<!-- Checkbox validant l'adresse enregistrée il faut le cocher pour valider le form  -->  
 											      		<input class="form-check-input" type="checkbox" value="" id="adresseenregistree" required>
 											      		<label class="form-check-label" for="adresseenregistree">
 										       		 		
 											      		</label>
+											      		<!-- Message si non coché quand cliquer sur le bouton "Continuer" -->
 										      			<div class="invalid-feedback">
 										      	  			Vous devez cocher une case. 
 										      			</div>
@@ -95,9 +103,29 @@
 							</table>
 						<? endforeach;
 					endforeach ?>
+					<!-- Fonctionnalité d'entrer une nouvelle adresse -->
 					<a href="adresse.html"><br> Choisir une autre adresse <br></a>
+					<!-- Bouton permettant l'action du form et qui envois sur la page paiement.html -->
 					<center><button type="submit" class="btn btn-default">Continuer</button></center>
 				</form>
+				<script>
+					// script bootstrap pour vérifier que les champs sont bien remplis 
+					(function() {
+					  'use strict';
+					  window.addEventListener('load', function() {
+					    var forms = document.getElementsByClassName('needs-validation');
+					    var validation = Array.prototype.filter.call(forms, function(form) {
+					      form.addEventListener('submit', function(event) {
+					        if (form.checkValidity() === false) {
+					          event.preventDefault();
+					          event.stopPropagation();
+					        }
+					        form.classList.add('was-validated');
+					      }, false);
+					    });
+					  }, false);
+					})();
+				</script>
 			</div>
 		</div>
 	</div>

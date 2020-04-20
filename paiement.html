@@ -30,15 +30,16 @@
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
 
+				<!-- Form bootstrap permettant d'indiquer si des champs obligatoires ne sont pas saisis -->
 				<form class="needs-validation border border-dark" style="padding: 15px" action="paiement.php" method="post" novalidate>
 					<center><h3>Étape 2/2</h3></center>
+					<!-- input radio afin d'avoir un seul type de carte -->
 					<div class="form-group">
 						<br>
 						<label>Sélectionnez un type de carte :</label><br>
 						<div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" name="type" id="visa" value="visa" required>
 						  <label class="form-check-label" for="visa">Visa</label>
-
 						</div>
 						<div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" name="type" id="mastercard" value="mastercard" required>
@@ -62,6 +63,7 @@
 				    	<div class="col">
 				    		<label for="numero">Numéro :</label>
 				    		<input type="text" class="form-control" id="numero" name="numero" placeholder="XXXXXXXXXXXXXXXX" required>
+				    		<!-- placeholder permet de placer un exemple dans les textbar sans pour autant devoir les effacer -->
 				    	</div>
 				    	<div class="col">
 				    		<label for="code">Code à 4 chiffres :</label>
@@ -95,13 +97,11 @@
 				</form>
 
 				<script>
-					// Example starter JavaScript for disabling form submissions if there are invalid fields
+					// script bootstrap pour vérifier que les champs sont bien remplis
 					(function() {
 					  'use strict';
 					  window.addEventListener('load', function() {
-					    // Fetch all the forms we want to apply custom Bootstrap validation styles to
 					    var forms = document.getElementsByClassName('needs-validation');
-					    // Loop over them and prevent submission
 					    var validation = Array.prototype.filter.call(forms, function(form) {
 					      form.addEventListener('submit', function(event) {
 					        if (form.checkValidity() === false) {

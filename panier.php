@@ -127,21 +127,27 @@
 			</div>	
 		</header>
 
+		<!-- div contenant la page -->
 		<div class="page">
 			<div class ="item">
+				<!-- link la feuille css --> 
 				<style>
 					<?php include 'eBay_article.css'; ?>
 				</style>
+
 				<?php
+					//connexion à la bdd
 				    $bdd = new mysqli('localhost','root',"", 'ebay_ece');
 				    $paniers = $bdd->query('select * from panier');
 				    $total = 0;
+				    // On cherche les informations des objets grâce à l'IDObjet contenu dans la table panier
 				    foreach ($paniers as $panier):
 				    	$articles = $bdd->query('select * from objet');
 				    	foreach ($articles as $article): 
 				    		$id_item = $article['IDObjet'];
 
 				    		if($panier['IDObjet'] == $article['IDObjet']) {
+				    			//calcul de la somme totale du panier
 				    			$total = $total + $article['Prix']; ?>
 						    	<article>
 					    			<div class="article">
@@ -152,24 +158,14 @@
 										</div>
 										<div class="col-sm-4">
 											<div class="middle">	
+												<!-- Affichage des objets stockés dans le panier -->
 												<h2><?php echo $article['NomObjet'] ?></h2><br>
 												<p><?php echo $article['Description'] ?></p>
 											</div>
 										</div>
 										<div class="col-sm-4">
 											<div class="right">	
-												<center><h3><?php echo $article['Prix'] ?> €<br><br></h3></center>										
-												<form action="#" method="post">
-												    <input type="submit" id="envoyer" name="envoyer" value="Supprimer">
-												</form>
-													<?php
-														
-														if(ISSET($_POST['envoyer'])) {
-														    $sql = "DELETE from panier where IDObjet LIKE '$id_item' ";
-														    $result = $bdd->query($sql);
-														    header('Location: panier.php?envoyer=1');
-														}
-													?>
+												<center><h3><?php echo $article['Prix'] ?> €<br><br></h3></center>	
 											</div>
 										</div>
 									</div>
@@ -177,6 +173,7 @@
 									<br><br><br><br><br><br><br><br><br><br><br><br><br>
 						    	</article>
 					    	<?php } ;
+					    	//fin des boucles for
 				    	endforeach;
 				    endforeach ?>
 			    </div>
@@ -185,6 +182,7 @@
 			    		<div class="col-sm-3"></div>
 			    		<div class="col-sm-6">
 	    					<div class="middle"><h2>Total :<?php echo $total ?>€</h2><br>
+	    						<!-- Envois vers la saisie de l'adresse de livraison -->
 	    						<a href="adresseform.php"> <input type="button" value="Payer" name="payer"> </a>
 	    					</div>
 			    		</div>

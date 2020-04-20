@@ -12,6 +12,7 @@
 </head>
 <body>
 <?php
+	// récupération des inputs
 	 $prenom = isset($_POST["prenom"])? $_POST["prenom"] : ""; 
 	 $nom = isset($_POST["nom"])? $_POST["nom"] : ""; 
 	 $ligne1 = isset($_POST["ligne1"])? $_POST["ligne1"] : "";
@@ -22,15 +23,17 @@
 	 $tel = isset($_POST["tel"])? $_POST["tel"] : "";
 	 $enregistrer = isset($_POST["enregistrer"])? $_POST["enregistrer"] : "";
 
-
+	 //connexion à la BDD
 	$bdd = new mysqli('localhost','root',"", 'ebay_ece');
 	$users = $bdd->query('select user_id from data_co');
 	foreach ($users as $user) {
+		//insération dans la BDD
 		$bdd->query('insert into adresse (IDAcheteur, Nom, Prenom, Ligne1, Ligne2, Ville, CodePostal, Pays, Telephone) VALUES ("'.$user['user_id'].'", "'.$nom.'", "'.$prenom.'", "'.$ligne1.'", "'.$ligne2.'", "'.$ville.'", "'.$poste.'", "'.$pays.'", "'.$tel.'")');
 	}
 	
 	
 ?>
+	<!-- Affichage du récapitulatif de la nouvelle adresse -->
 	<div class="container-fluid">
 			<header class="header">
 				<div class="row" style="height:25px;">
@@ -98,6 +101,7 @@
 				    	</div>
 				  	</div>
 					<br><br>
+					<!-- Bouton menant au form de saisie de CB -->
 		 			 <center><a href="paiement.html"><input type="button" value="Continuer"></a></center>
 				</form>
 
