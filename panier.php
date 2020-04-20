@@ -139,6 +139,7 @@
 				    foreach ($paniers as $panier):
 				    	$articles = $bdd->query('select * from objet');
 				    	foreach ($articles as $article): 
+				    		$id_item = $article['IDObjet'];
 
 				    		if($panier['IDObjet'] == $article['IDObjet']) {
 				    			$total = $total + $article['Prix']; ?>
@@ -157,12 +158,18 @@
 										</div>
 										<div class="col-sm-4">
 											<div class="right">	
-												<center><h3><?php echo $article['Prix'] ?> €<br><br></h3></center>
-												<?php $hiddenid = $panier['IDObjet']; ?>
-												<form action="suppobj.php" method="post">
-													<input type="checkbox" name="wildid" value="<?php $hiddenid ?>" checked="checked" style="visibility: hidden"/>
+												<center><h3><?php echo $article['Prix'] ?> €<br><br></h3></center>										
+												<form action="#" method="post">
 												    <input type="submit" id="envoyer" name="envoyer" value="Supprimer">
-												<form>
+												</form>
+													<?php
+														
+														if(ISSET($_POST['envoyer'])) {
+														    $sql = "DELETE from panier where IDObjet LIKE '$id_item' ";
+														    $result = $bdd->query($sql);
+														    header('Location: panier.php?envoyer=1');
+														}
+													?>
 											</div>
 										</div>
 									</div>
