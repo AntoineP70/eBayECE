@@ -157,7 +157,12 @@
 										</div>
 										<div class="col-sm-4">
 											<div class="right">	
-												<p><?php echo $article['Prix'] ?></p>
+												<center><h3><?php echo $article['Prix'] ?> €<br><br></h3></center>
+												<?php $hiddenid = $panier['IDObjet']; ?>
+												<form action="suppobj.php" method="post">
+													<input type="checkbox" name="wildid" value="<?php $hiddenid ?>" checked="checked" style="visibility: hidden"/>
+												    <input type="submit" id="envoyer" name="envoyer" value="Supprimer">
+												<form>
 											</div>
 										</div>
 									</div>
